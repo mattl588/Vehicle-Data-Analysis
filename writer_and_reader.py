@@ -24,6 +24,7 @@ date = input("Date of listing in MM/DD/YY format?\n")
 
 wheel = input("RHD or LHD?\n")
 
+website = input("Where is this listing?\n")
 
 
 file = "data.json"
@@ -37,6 +38,7 @@ vehicle = {
         "edition": edition,
         "data": date,
         "wheel": wheel,
+        "website": website,
 }
 
 if (file_exists):
