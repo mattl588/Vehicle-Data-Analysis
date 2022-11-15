@@ -12,7 +12,7 @@ from os.path import exists
 
 year = input("What's the year?\n")
 
-country = input("What country is it from?\n")
+location = input("Where is it from? Do a country if foreign, state if local\n")
 
 condition = input("Is the condition poor, fair, good, or excellent?\n")
 
@@ -24,25 +24,29 @@ date = input("Date of listing in MM/DD/YY format?\n")
 
 wheel = input("RHD or LHD?\n")
 
+
+
 file = "data.json"
 file_exists = exists(file)
 
 vehicle = {
         "year": year,
-        "country": country,
+        "location": location,
         "condition": condition,
         "color": color,
         "edition": edition,
-        "wheel": wheel
+        "data": date,
+        "wheel": wheel,
 }
 
 if (file_exists):
     with open(file) as f:
         unpacked_data = json.load(f)
         if type(unpacked_data) is dict:
-            unpacked_data = [unpacked_data]
+            unpacked_data = [unpacked_data] #making the data a list 
         print(unpacked_data)
         unpacked_data.append(vehicle)
+        print(unpacked_data)
     with open(file, 'w') as json_file:
         json.dump(unpacked_data, json_file, indent = 4)
 
